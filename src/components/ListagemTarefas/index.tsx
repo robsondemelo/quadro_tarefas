@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext, } from "react";
 import { Container } from "./styles";
 import { TarefaContext } from "../../contexts/tarefaContext";
 import { FaPen } from 'react-icons/fa'
 
-interface interfaceTarefas {
-    descricao: string;
-    id: string;
-    titulo: string;
-}
+// interface interfaceTarefas {
+//     descricao: string;
+//     id: string;
+//     titulo: string;
+// }
 
 interface PropsListarTarefas {
     abrirModal: () => void;

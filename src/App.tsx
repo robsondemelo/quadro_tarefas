@@ -4,7 +4,7 @@ import { Header } from './components/Header'
 import { NovoModal } from './components/Modal'
 import Modal from 'react-modal';
 import { ListagemTarefas } from './components/ListagemTarefas';
-import { TarefaContext, TarefasProvider } from './contexts/tarefaContext';
+import { TarefasProvider } from './contexts/tarefaContext';
 
 Modal.setAppElement('#root');
 function App() {

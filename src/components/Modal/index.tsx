@@ -2,7 +2,7 @@ import { FormEvent, useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
 import { FormContainer } from './styles';
-import axios from 'axios';
+//import axios from 'axios';
 import { TarefaContext } from '../../contexts/tarefaContext';
 
 interface NovoModalProps {
