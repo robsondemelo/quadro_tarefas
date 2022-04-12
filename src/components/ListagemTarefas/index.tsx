@@ -25,7 +25,7 @@ export function ListagemTarefas({ abrirModal }: PropsListarTarefas) {
                 <ul>
                     <h3>Quadro 1</h3>
                     { 
-                        tarefaCtx.tarefas.filter(tarefas => tarefas.quadro == "1").map((element, index) => (
+                        tarefaCtx.tarefas.filter(tarefas => tarefas.quadro === "1").map((element, index) => (
                             
                             <li key={element.id}>
                                 <div style={{
@@ -57,7 +57,7 @@ export function ListagemTarefas({ abrirModal }: PropsListarTarefas) {
                 <ul>
                     <h3>Quadro 2</h3>
                     {
-                        tarefaCtx.tarefas.filter(tarefas => tarefas.quadro == "2").map((element, index) => (
+                        tarefaCtx.tarefas.filter(tarefas => tarefas.quadro === "2").map((element, index) => (
                             <li key={element.id} >
                                 <div style={{
                                     display: 'flex',
@@ -88,7 +88,7 @@ export function ListagemTarefas({ abrirModal }: PropsListarTarefas) {
                 <ul>
                     <h3>Quadro 3</h3>
                     {
-                       tarefaCtx.tarefas.filter(tarefas => tarefas.quadro == "3").map((element, index) => (
+                       tarefaCtx.tarefas.filter(tarefas => tarefas.quadro === "3").map((element, index) => (
                             <li key={element.id} >
                                 <div style={{
                                     display: 'flex',
