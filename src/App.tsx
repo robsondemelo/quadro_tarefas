@@ -5,11 +5,13 @@ import { NovoModal } from './components/Modal'
 import Modal from 'react-modal';
 import { ListagemTarefas } from './components/ListagemTarefas';
 import { TarefasProvider } from './contexts/tarefaContext';
+import { AbreLoading } from './components/Loading';
 
 Modal.setAppElement('#root');
 function App() {
 
     const [visibleModal, setVisibleModal] = useState<boolean>(false);
+    const [carregaLoading, setCarregaLoading] = useState(false);
 
 
     function abrirModal() {
@@ -20,9 +22,18 @@ function App() {
         setVisibleModal(false)
     }
 
+    function abrirLoading() {
+        setCarregaLoading(true);
+    }
+
+    function fecharLoading() {
+        setCarregaLoading(false);   
+    }
+
     return (
         <TarefasProvider>
             <div>
+            {carregaLoading ? <AbreLoading/> : ''}
                 <GlobalStyle />
 
                 <Header abrirModal={abrirModal} />
@@ -32,6 +43,9 @@ function App() {
                 <NovoModal
                     visibleNovoModal={visibleModal}
                     fecharModal={fecharModal}
+                    visibleLoading={carregaLoading}
+            abrirLoading={abrirLoading}
+            fecharLoading={fecharLoading}
                 />
 
             </div>
