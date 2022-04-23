@@ -8,6 +8,9 @@ import { TarefaContext } from '../../contexts/tarefaContext';
 interface NovoModalProps {
     visibleNovoModal: boolean;
     fecharModal: () => void;
+    visibleLoading: boolean;
+    abrirLoading: () => void;
+    fecharLoading: () => void;
 }
 
 export function NovoModal(props: NovoModalProps) {
@@ -23,7 +26,7 @@ export function NovoModal(props: NovoModalProps) {
 
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [quadro, setQuadro] = useState("");
+    const [quadro, setQuadro] = useState("1");
 
     useEffect(() => {
         if (editarTarefa.editar) {
@@ -41,6 +44,10 @@ export function NovoModal(props: NovoModalProps) {
         if(editarTarefa.tarefa) {
             excluirTarefa(editarTarefa.tarefa)
             limparCamposAoFecharModal()
+            props.abrirLoading();
+            setTimeout(function () {
+                props.fecharLoading();
+            },800);
         }
     }
 
@@ -73,12 +80,20 @@ export function NovoModal(props: NovoModalProps) {
             //     descricao: descricao 
             // })
             atualizarTarefa(obj)
+            props.abrirLoading();
+            setTimeout(function () {
+                props.fecharLoading();
+            },800);
         } else {
             criarTarefas({
                 titulo,
                 descricao,
                 quadro
             })
+            props.abrirLoading();
+            setTimeout(function () {
+                props.fecharLoading();
+            },800);
         }
 
 
@@ -102,7 +117,7 @@ export function NovoModal(props: NovoModalProps) {
 
             <FormContainer onSubmit={onSubmitModal} >
                 <h2>{editarTarefa.editar ? 'Editar' : 'Cadastrar'} Tarefa</h2>
-                <select value={quadro} onChange={(event) => setQuadro(event.target.value)}>
+                <select required value={quadro} onChange={(event) => setQuadro(event.target.value)}>
                     <option value=''>Selecione</option>
                     <option value='1'>Quadro 1</option>
                     <option value='2'>Quadro 2</option>
